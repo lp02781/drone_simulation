@@ -15,11 +15,7 @@
 void keyCommandIndicator(const std_msgs::String::ConstPtr& msg);
 void keyboardCommands();
 void do_takeoff();
-void do_forward();
 void do_landing();
-void do_backward();
-void do_left();
-void do_right();
 
 char g_key_command = 'o';
 const double KEYBOARD_CALL_DURATION = 0.5;
@@ -77,13 +73,14 @@ void do_takeoff()
 	position.pose.position.x = 0;
 	position.pose.position.y = 0;
 	position.pose.position.z = 3;
-	while(current_state.mode != "OFFBOARD")
+	if(current_state.mode != "OFFBOARD")
 	{
-			arm_cmd.request.value = true;
-			arming_client.call(arm_cmd);
-			offb_set_mode.request.custom_mode = "OFFBOARD";
-			set_mode_client.call(offb_set_mode);	
-			position_publisher.publish(position);
-			ros::spinOnce();
+		arm_cmd.request.value = true;
+		arming_client.call(arm_cmd);
+		offb_set_mode.request.custom_mode = "OFFBOARD";
+		set_mode_client.call(offb_set_mode);	
+		position_publisher.publish(position);
+		ros::spinOnce();
 	}	
 }
+
