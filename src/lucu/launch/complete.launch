@@ -1,0 +1,4 @@
+<launch>
+	<node name="keyboard" pkg="lucu" output="screen" type="keyboard"/>
+	<node name="node_controller" pkg="lucu" output="screen" type="node_controller"/>
+</launch>

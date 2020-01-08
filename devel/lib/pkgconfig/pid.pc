@@ -1,0 +1,8 @@
+prefix=/home/mfikih15/drone_simulation/devel
+
+Name: pid
+Description: Description of pid
+Version: 0.0.7
+Cflags: -I/home/mfikih15/drone_simulation/devel/include
+Libs: -L/home/mfikih15/drone_simulation/devel/lib 
+Requires: roscpp std_msgs message_runtime
