@@ -4,5 +4,5 @@ Name: lucu
 Description: Description of lucu
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/mfikih15/drone_simulation/install/lib 
+Libs: -L${prefix}/lib 
 Requires: message_runtime
